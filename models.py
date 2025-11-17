@@ -4,7 +4,16 @@ from datetime import datetime
 
 from database import Base
 
+class CallSignal(Base):
+    tablename = "call_signals"
 
+    id = Column(Integer, primary_key=True, index=True)
+    from_id = Column(Integer, index=True)
+    to_id = Column(Integer, index=True)
+    type = Column(String, index=True)  # offer / answer / candidate
+    content = Column(String)           # JSON-строка SDP або candidate
+    created_at = Column(DateTime, default=datetime.utcnow)
+    
 class User(Base):
     __tablename__ = "users"
 
