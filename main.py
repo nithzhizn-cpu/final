@@ -8,7 +8,8 @@ import secrets
 from database import SessionLocal, engine
 import models
 import schemas
-
+from routes_calls import router as call_router
+app.include_router(call_router)
 # Створюємо таблиці, якщо їх ще немає
 models.Base.metadata.create_all(bind=engine)
 
