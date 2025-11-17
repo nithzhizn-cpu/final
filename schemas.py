@@ -46,3 +46,29 @@ class MessageOut(BaseModel):
 
 class MessagesResponse(BaseModel):
     messages: list[MessageOut]
+
+class CallOfferSchema(BaseModel):
+    from_id: int
+    to_id: int
+    sdp: str
+
+class CallAnswerSchema(BaseModel):
+    from_id: int
+    to_id: int
+    sdp: str
+
+class CallCandidateSchema(BaseModel):
+    from_id: int
+    to_id: int
+    candidate: str
+
+class CallSignalOut(BaseModel):
+    id: int
+    from_id: int
+    to_id: int
+    type: str
+    content: str
+    created_at: str
+
+    class Config:
+        orm_mode = True
